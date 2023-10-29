@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Générateur de Couleur</title>
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+    
+    <h1>M.B || le générateur aléatoire de couleurs</h1>
+    <div class="boite-btn">
+         <button>Générer Des Couleurs</button> 
+    </div>
+     <section></section>
+    <script>
+         let btn = document.querySelector("button");
+         let section = document.querySelector("section")
+         btn.onclick=function(){
+            
+            //Faire une boucle pour générer des boites
+            for(var i=1; i<13 ;i++){
+                section.innerHTML+="<div class='boite'></div>"
+           
+                //selectionner chaque boite dans une seule variable
+                let boite = document.querySelector(`.boite:nth-child(${i})`)
+           
+                //générer les couleurs
+                const couleur = "#"+(Math.floor(Math.random() * 0xFFFF)).toString(16);
+            
+                //Appliquer les couleur a chaque boite
+                boite.style.background = couleur;
+            
+                //Ecrire la couleur de chaque boite
+                 boite.innerHTML =`<p>${couleur}</p>`
+                
+            }
+         }
+
+    </script>
+ </body>
+ </html>
